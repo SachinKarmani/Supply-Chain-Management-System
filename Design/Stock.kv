@@ -1,0 +1,113 @@
+# File name: layouts.kv 
+#:kivy 1.7.0
+<Stock>:
+    orientation: 'vertical'
+    search_results: search_results_list
+    StackLayout:
+        id: inputs
+        orientation:'lr-tb'
+        size_hint:1,0.5
+        padding:50,15
+        spacing:0
+
+        Label:
+            text: ''
+            size_hint: 0.666, 0.3
+
+        Button:
+            id:search
+            text: 'Search'
+            size_hint: 0.333, 0.3
+            on_release: root.call_popup(self.text)
+
+        Label:
+            text: 'Description'
+            size_hint: 0.25, 0.3
+        Label:
+            text: 'Item Code'
+            size_hint: 0.25, 0.3
+        Label:
+            text: 'Quantity'
+            size_hint: 0.25, 0.3
+        Label:
+            text: 'Status'
+            size_hint: 0.25, 0.3
+
+    ListView:
+        id: search_results_list
+        size_hint_x: 0.99
+        pos_hint: {'x':(self.parent.width - self.width)/2000}
+
+        adapter:
+            ListAdapter(
+            data=root.retreive_data(),
+            args_converter=root.args_converter,
+            selection_mode='multiple',
+            cls=CompositeListItem)
+
+<StockSearch>:
+    id:poppop
+    size_hint: .5, .4
+    auto_dismiss: False
+    title: 'Search'
+    StackLayout:
+        id: bpop
+        orientation: 'lr-tb'
+        Label:
+            text: 'Item ID'
+            size_hint: 0.5, None
+            height: '32dp'
+        TextInput:
+            id:ID
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        Label:
+            text: 'Item Description'
+            size_hint: 0.5, None
+            height: '32dp'
+        TextInput:
+            id:description
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        Label:
+            text: 'Status'
+            size_hint: 0.5, None
+            height: '32dp'
+        Label:
+            text: ''
+            size_hint: 0.5, None
+            height: '32dp'
+        Label:
+            text: 'Sufficient:'
+            size_hint: 0.3, None
+            height: '32dp'
+        CheckBox:
+            id:sufficient
+            size_hint: 0.2, None
+            height: '32dp'
+        Label:
+            text: 'Short:'
+            size_hint: 0.3, None
+            height: '32dp'
+        CheckBox:
+            id:short
+            size_hint: 0.2, None
+            height: '32dp'
+
+        Button:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Search'
+            on_release: root.dismiss()
+            on_release: root.apply_search()
+        Button:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Dismiss'
+            on_release: root.dismiss()
+
+
+
+

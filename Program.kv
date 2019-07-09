@@ -1,0 +1,138 @@
+# File name: layouts.kv 
+#:kivy 1.7.0
+#:import Factory kivy.factory.Factory
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+#:import ListAdapter kivy.adapters.listadapter.ListAdapter
+#:import CompositeListItem kivy.uix.listview.CompositeListItem
+
+
+#:import Stock FrontEndClass.StockLayout
+#:import Invoice FrontEndClass.InvoiceLayout
+#:import Payment FrontEndClass.PaymentLayout
+#:import Quotation FrontEndClass.QuotationLayout
+#:import PurchaseOrder FrontEndClass.PurchaseOrderLayout
+#:import CustomerOrder FrontEndClass.CustomerOrderLayout
+
+<MyToggleButton@ToggleButton>:
+    group:'toggler'
+    size_hint: (1, None)
+    height: "40dp"
+    font_size:20
+    background_color: (1, 1, 1, 0)
+    on_press: self.change()
+
+<MyScreen@Screen>:
+    canvas.before:
+        Color: 
+            rgba: 0.015, .64, .078, 1
+        Rectangle:
+            size: self.size
+ 
+<MyGrid>:
+    rows: 3 
+    canvas.before:
+        Color:
+            rgba: 0.8, .1, .1, 1
+        Rectangle:
+            size: self.size
+
+    Label: 
+        canvas.before:
+            Color: 
+                rgba: 0.5, .2, .7, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        size_hint: (1,0.15)
+        font_size:'25sp'
+        text: 'Supply Chain Management System'
+
+    GridLayout:
+        cols: 2
+        StackLayout: 
+        
+            size_hint: (0.3,1)
+            name: 'blayok'
+            orientation: 'lr-tb'
+            padding: -1.5
+            Label: 
+                size_hint: (1, None)
+                height: '2dp'
+                text: ''
+
+            MyToggleButton:
+                text: "Stock"
+                on_release: sm.current = self.text
+                on_release: root.ids['stock_screen'].update_screen_list()
+
+            MyToggleButton:
+                text: "Quotation"
+                on_release: sm.current = self.text
+                on_release: root.ids['quotation_screen'].update_screen_list()
+
+            MyToggleButton:
+                text: "Purchase Order"
+                on_release: sm.current = self.text
+                on_release: root.ids['po_screen'].update_screen_list()
+
+            MyToggleButton:
+                text: "Customer Order"
+                on_release: sm.current = self.text
+                on_release: root.ids['co_screen'].update_screen_list()
+
+            MyToggleButton:
+                text: "Invoice"
+                on_release: sm.current = self.text
+                on_release: root.ids['invoice_screen'].update_screen_list()
+
+            MyToggleButton:
+                text: "Payment"
+                on_release: sm.current = self.text
+                on_release: root.ids['payment_screen'].update_screen_list()
+
+        ScreenManager:
+            id: sm
+            name: 'smok'
+
+            transition: NoTransition()
+
+            MyScreen:
+                name: 'Quotation'
+                Quotation:
+                    id:quotation_screen
+            MyScreen:
+                name: 'Stock'
+                Stock:
+                    id:stock_screen
+            MyScreen:
+                name: "Purchase Order"
+                PurchaseOrder:
+                    id:po_screen
+            MyScreen:
+                name: "Customer Order"
+                CustomerOrder:
+                    id:co_screen
+            MyScreen:
+                name: "Invoice"
+                Invoice:
+                    id:invoice_screen
+            MyScreen:
+                name: "Payment"
+                Payment:
+                    id:payment_screen
+
+
+
+    Label: 
+        canvas.before:
+            Color:
+                rgba: 0.5, .2, .7, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        size_hint: (1,0.15)
+        font_size: '25sp'
+        text: 'Software Engineering Project'
+

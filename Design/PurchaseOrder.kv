@@ -1,0 +1,70 @@
+# File name: layouts.kv 
+#:kivy 1.7.0
+<PurchaseOrder>:
+    orientation: 'vertical'
+    search_results: search_results_list
+    StackLayout:
+        id: inputs
+        orientation:'lr-tb'
+        padding:50,15
+        spacing:0
+        Button:
+            id:add
+            text: 'Add'
+            size_hint: 0.5, 0.3
+            on_release: root.call_popup(self.text)
+        Button:
+            id:search
+            text: 'Search'
+            size_hint: 0.5, 0.3
+            on_release: root.call_popup(self.text)
+        Button:
+            disabled:True
+            id:mark_received
+            text: 'Mark Received'
+            size_hint: 0.5, 0.3
+            on_release: root.call_popup(self.text)
+
+
+        Button:
+            id:view
+            text: 'View'
+            size_hint: 0.5, 0.3
+            disabled:True
+            on_release: root.call_popup(self.text)
+
+        Label:
+            text:''
+            font_size:'15sp'
+            size_hint: 0.04,0.5
+        Label:
+            font_size:'15sp'
+            text:'PO Number'
+            size_hint: 0.24,0.5
+        Label:
+            font_size:'15sp'
+            size_hint: 0.24,0.5
+            text:'PO Date'
+        Label:
+            font_size:'15sp'
+            size_hint: 0.24,0.5
+            text:'         Amount'
+        Label:
+            font_size:'15sp'
+            size_hint: 0.24,0.5
+            text:'               Status'
+
+    ListView:
+        id: search_results_list
+        size_hint_x: 0.99
+        pos_hint: {'x':(self.parent.width - self.width)/2000}
+        adapter:
+            ListAdapter(
+            data=root.retreive_data(),
+            args_converter=root.args_converter,
+            selection_mode='multiple',
+            cls=CompositeListItem)
+
+
+
+

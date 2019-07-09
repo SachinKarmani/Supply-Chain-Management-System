@@ -1,0 +1,441 @@
+#:kivy 1.7.0
+<PurchaseOrderSearch>:
+    id:poppop
+    size_hint: .5, .45
+    auto_dismiss: False
+    title: 'Search'
+    StackLayout:
+        id: bpop
+        orientation: 'lr-tb'
+        Label:
+            text: 'PurchaseOrder Number'
+            size_hint: 0.5, None
+            height: '32dp'
+        TextInput:
+            id:ID
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        Label:
+            text: 'Status'
+            size_hint: 0.5, None
+            height: '32dp'
+        Label:
+            text: ''
+            size_hint: 0.5, None
+            height: '32dp'
+        Label:
+            text: 'Received:'
+            size_hint: 0.3, None
+            height: '32dp'
+        CheckBox:
+            id:received
+            size_hint: 0.2, None
+            height: '32dp'
+        Label:
+            text: 'Pending:'
+            size_hint: 0.3, None
+            height: '32dp'
+        CheckBox:
+            id:pending
+            size_hint: 0.2, None
+            height: '32dp'
+        Label:
+            text: 'After (DD,MM,YYYY)'
+            size_hint: 0.5, None
+            height: '32dp'
+        TextInput:
+            id:Day_A
+            size_hint: 0.15, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            id:Month_A
+            size_hint: 0.15, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            id:Year_A
+            size_hint: 0.2, None
+            height: '32dp'
+            multiline: False
+        Label:
+            text: 'Before (DD,MM,YYYY)'
+            size_hint: 0.5, None
+            height: '32dp'
+        TextInput:
+            id:Day_B
+            size_hint: 0.15, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            id:Month_B
+            size_hint: 0.15, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            id:Year_B
+            size_hint: 0.2, None
+            height: '32dp'
+            multiline: False
+
+        Button:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Search'
+            on_press: root.apply_search()
+            on_release: root.dismiss()
+        Button:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Dismiss'
+            on_release: root.dismiss()
+
+
+<PurchaseOrderInsert>:
+    id:poppop
+    size_hint: .5, .45
+    auto_dismiss: False
+    title: 'Add'
+    StackLayout:
+        id: inputs
+        orientation: 'lr-tb'
+        Label:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Item'
+        Label:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Quantity'
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        Label:
+            size_hint: 1, None
+            height: '10dp'
+            text: ''
+        Button:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Save'
+            on_press: root.insert()
+        Button:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Dismiss'
+            on_press: root.dismiss()
+
+
+
+<PurchaseOrderView>:
+    id:poppop
+    size_hint: .5, .7
+    auto_dismiss: False
+    title: 'View'
+    StackLayout:
+        id: inputs
+        orientation: 'lr-tb'
+        Label:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'PurchaseOrder Number: '
+
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        Label:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'PurchaseOrder Date: '
+
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        Label:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Status: '
+
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        Label:
+            size_hint: 1, None
+            height: '20dp'
+            text: ''
+        Label:
+            size_hint: 0.25, None
+            height: '32dp'
+            text: 'Item'
+        Label:
+            size_hint: 0.25, None
+            height: '32dp'
+            text: 'Quantity'
+        Label:
+            size_hint: 0.25, None
+            height: '32dp'
+            text: 'Price'
+        Label:
+            size_hint: 0.25, None
+            height: '32dp'
+            text: 'Amount'
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        Label:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: ''
+        Label:
+            size_hint: 0.25, None
+            height: '32dp'
+            text: 'Total: '
+
+        TextInput:
+            size_hint: 0.25, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        Label:
+            size_hint: 1, None
+            height: '10dp'
+            text: ''
+        Button:
+            size_hint:1, None
+            height: '32dp'
+            text: 'Dismiss'
+            on_press: root.dismiss()
+
+
+<PurchaseOrderMark>:
+    id:poppop
+    size_hint: .5, .3
+    auto_dismiss: False
+    title: ''
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            id:status_label
+            text: ''
+            size_hint: 1, .5
+        Button:
+            size_hint: 1, .5
+            text: 'Dismiss'
+            on_press: root.dismiss()
+
+<PurchaseOrderError>:
+    id:poppop
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Error'
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            id:label
+            size_hint: 1,0.5
+            text: ''
+        Button:
+            size_hint: 1,0.5
+            text:'Dismiss'
+            on_release:root.dismiss()
+
+<PurchaseOrderUpdate>:
+    id:poppop
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Update'
+    StackLayout:
+        id: inputs
+        orientation: 'lr-tb'
+        Label:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'PurchaseOrder Number: '
+
+        TextInput:
+            size_hint: 1, None
+            height: '32dp'
+            multiline: False
+            disabled: True
+        Label:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Company Name: '
+
+        TextInput:
+            size_hint: 1, None
+            height: '32dp'
+            multiline: False
+        Label:
+            size_hint: 1, None
+            height: '20dp'
+            text: ''
+        Label:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Item'
+        Label:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Price'
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        TextInput:
+            size_hint: 0.5, None
+            height: '32dp'
+            multiline: False
+        Label:
+            size_hint: 1, None
+            height: '10dp'
+            text: ''
+        Button:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Save'
+            on_press: root.update()
+            on_press: root.dismiss()
+        Button:
+            size_hint: 0.5, None
+            height: '32dp'
+            text: 'Dismiss'
+            on_press: root.dismiss()
+

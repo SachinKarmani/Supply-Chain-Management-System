@@ -1,0 +1,67 @@
+# File name: layouts.kv 
+#:kivy 1.7.0
+<Invoice>:
+    orientation: 'vertical'
+    search_results: search_results_list
+    StackLayout:
+        id: inputs
+        orientation:'lr-tb'
+        padding:50,15
+        spacing:0
+        Button:
+            id:add
+            text: 'Add Payment'
+            size_hint: 1, 0.3
+            on_release: root.call_popup(self.text)
+            disabled:True
+        Button:
+            id:search
+            text: 'Search'
+            size_hint: 0.5, 0.3
+            on_release: root.call_popup(self.text)
+        Button:
+            id:view
+            text: 'View'
+            size_hint: 0.5, 0.3
+            disabled:True
+            on_release: root.call_popup(self.text)
+
+        Label:
+            font_size:'15sp'
+            text:'Invoice Number'
+            size_hint: 0.1666,0.5
+        Label:
+            font_size:'15sp'
+            size_hint: 0.1666,0.5
+            text:'Company'
+        Label:
+            font_size:'15sp'
+            size_hint: 0.1966,0.5
+            text:'CO Number'
+        Label:
+            font_size:'15sp'
+            size_hint: 0.1666,0.5
+            text:'Amount'
+        Label:
+            font_size:'15sp'
+            size_hint: 0.1666,0.5
+            text:'Date'
+        Label:
+            font_size:'15sp'
+            size_hint: 0.1366,0.5
+            text:'Status'
+
+    ListView:
+        id: search_results_list
+        size_hint_x: 0.99
+        pos_hint: {'x':(self.parent.width - self.width)/2000}
+        adapter:
+            ListAdapter(
+            data=root.retreive_data(),
+            args_converter=root.args_converter,
+            selection_mode='multiple',
+            cls=CompositeListItem)
+
+
+
+
