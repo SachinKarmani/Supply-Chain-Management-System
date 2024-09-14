@@ -1,11 +1,5 @@
 # Supply Chain Management System
 
-Here is a draft of a GitHub README for your project based on the information from the uploaded documents:
-
----
-
-# Supply and Distribution Management System
-
 This project is a desktop-based application designed to manage the purchase and distribution of products from suppliers to customers efficiently. It utilizes a relational database for managing stock and purchase orders, quotations, invoices, payments, and more.
 
 ## Table of Contents
@@ -16,10 +10,8 @@ This project is a desktop-based application designed to manage the purchase and 
 - [User Roles](#user-roles)
 - [Operating Environment](#operating-environment)
 - [Functional Requirements](#functional-requirements)
-- [Non-functional Requirements](#non-functional-requirements)
 - [Interface Requirements](#interface-requirements)
-- [Diagrams](#diagrams)
-- [Contributors](#contributors)
+- [State Flow](#state-flow)
 
 ## Introduction
 
@@ -64,17 +56,14 @@ The system includes the following features:
 6. **Payments**: Record and track payments against invoices.
 7. **Data Analytics**: Provide insights into purchase and sales patterns.
 
-## Non-functional Requirements
-
-- **Safety Requirements**: The database should be backed up in a cloud folder to prevent data loss in case of catastrophic failure.
-- **Software Quality Attributes**: The system should support partial deliveries, and products should not appear more than once in an order.
-- **Security Requirements**: The application will be used on a dedicated system and can run on only one system at a time.
-
 ## Interface Requirements
 
 - **User Interface**: Developed using Python for a user-friendly experience.
 - **Hardware Interfaces**: No direct hardware interfaces required.
 - **Software Interfaces**: Uses Python for the front end and SQL for the database.
 
+## State Flow
+
+![x](https://github.com/user-attachments/assets/878599db-1c88-438c-bec5-a3e89d237c18)
 
 ---
